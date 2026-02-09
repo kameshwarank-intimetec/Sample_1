@@ -8,46 +8,73 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="container">
-      <h1 class="logo">MySite</h1>
-      <nav class="nav" id="nav">
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">🌙</button>
-        <button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
-        <ul class="nav-list">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+    <div class="container header-grid">
+      <div class="brand">
+        <h1 class="logo">MySite</h1>
+      </div>
+      <div class="header-actions">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">☰</button>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="container">
-        <h2>Welcome to MySite</h2>
-        <p>A simple starter homepage with separate HTML, CSS and JS files.</p>
-        <a class="btn" href="#features">Learn more</a>
+  <div class="layout container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <div class="profile">
+          <div class="avatar" aria-hidden="true">MS</div>
+          <div>
+            <strong>MySite</strong>
+            <div class="muted">Simple starter</div>
+          </div>
+        </div>
+
+        <nav class="side-nav" aria-label="Primary">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="sidebar-contact">
+          <h4>Contact</h4>
+          <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+        </div>
       </div>
-    </section>
+    </aside>
 
-    <section id="features" class="features container">
-      <h3>Features</h3>
-      <ul>
-        <li>Responsive layout</li>
-        <li>Accessible nav</li>
-        <li>Minimal and easy to extend</li>
-      </ul>
-    </section>
+    <main class="main">
+      <section id="home" class="hero">
+        <div class="hero-inner">
+          <h2>Welcome to MySite</h2>
+          <p class="lead">A refreshed layout with a modern color scheme and responsive two-column design.</p>
+          <a class="btn" href="#features">Explore features</a>
+        </div>
+      </section>
 
-    <section id="contact" class="container contact">
-      <h3>Contact</h3>
-      <p>Reach us at <a href="mailto:hello@example.com">hello@example.com</a></p>
-    </section>
-  </main>
+      <section id="features" class="features">
+        <h3>Features</h3>
+        <div class="features-grid">
+          <div class="card">Responsive layout</div>
+          <div class="card">Accessible navigation</div>
+          <div class="card">Easy to extend</div>
+          <div class="card">Theme support</div>
+        </div>
+      </section>
 
-  <footer class="site-footer container">
-    <p>&copy; 2026 MySite</p>
+      <section id="contact" class="contact">
+        <h3>Contact</h3>
+        <p>Reach us at <a href="mailto:hello@example.com">hello@example.com</a></p>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 MySite</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>

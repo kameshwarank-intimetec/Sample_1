@@ -1,65 +1,86 @@
-/* CSS Variables for Theme */
+/* New Theme: Teal & Coral with warm neutrals */
 :root {
-    --bg-primary: #ffffff;
-    --text-primary: #1a1a2e;
-    --header-bg: linear-gradient(90deg, #FF6B35, #FF8C42);
-    --hero-bg: linear-gradient(135deg, #004E89, #1B6CA8);
-    --features-bg: linear-gradient(135deg, #FFF3E0, #FFE0B2);
-    --features-heading: #FF6B35;
-    --contact-bg: linear-gradient(135deg, #E0F7FF, #B3E5FC);
-    --contact-heading: #004E89;
-    --contact-link: #FF6B35;
-    --footer-bg: linear-gradient(90deg, #1a1a2e, #16213e);
-    --footer-text: #f0f0f0;
-    --btn-bg: linear-gradient(90deg, #FF6B35, #F7931E);
-    --btn-shadow: rgba(255, 107, 53, 0.4);
-    --accent-teal: #00B4D8;
-    --accent-purple: #7209B7;
+    --bg: #fbf7f2;
+    --muted: #6b6b6b;
+    --text: #102027;
+    --card: #ffffff;
+    --primary: #006d77; /* teal */
+    --accent: #ff6b6b;  /* coral */
+    --header-bg: linear-gradient(90deg, #006d77, #2a9d8f);
+    --hero-bg: linear-gradient(135deg, #114b5f, #2a9d8f);
+    --footer-bg: linear-gradient(90deg, #072227, #021f1f);
+    --btn-bg: linear-gradient(90deg, #ff6b6b, #ff8a65);
+    --shadow: rgba(16,32,39,0.08);
 }
 
 html.dark-mode {
-    --bg-primary: #0f0f1e;
-    --text-primary: #e0e0e0;
-    --header-bg: linear-gradient(90deg, #d84315, #ff6f00);
-    --hero-bg: linear-gradient(135deg, #003d5c, #0a5f7f);
-    --features-bg: linear-gradient(135deg, #2d1b00, #3d2817);
-    --features-heading: #ffab40;
-    --contact-bg: linear-gradient(135deg, #0d3b4d, #1a4d5f);
-    --contact-heading: #4fc3f7;
-    --contact-link: #ffab40;
-    --footer-bg: linear-gradient(90deg, #050505, #0a0a14);
-    --footer-text: #d0d0d0;
-    --btn-bg: linear-gradient(90deg, #ff6f00, #ff9800);
-    --btn-shadow: rgba(255, 111, 0, 0.4);
+    --bg: #071018;
+    --muted: #9aa5a6;
+    --text: #e6f7f5;
+    --card: #0b1416;
+    --primary: #0a6b6b;
+    --accent: #ff8a80;
+    --header-bg: linear-gradient(90deg, #053f3f, #0a6b6b);
+    --hero-bg: linear-gradient(135deg, #022a2d, #004d4f);
+    --footer-bg: linear-gradient(90deg, #00080a, #021012);
+    --btn-bg: linear-gradient(90deg, #ff6b6b, #ff8a65);
+    --shadow: rgba(0,0,0,0.5);
 }
 
-/* Simple reset */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0 }
+html, body { height: 100%; font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; color: var(--text); background: var(--bg); }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 1rem }
+
+/* Header */
+.site-header { background: var(--header-bg); color: #fff; padding: 0.6rem 0; box-shadow: 0 4px 18px rgba(0,0,0,0.08); }
+.header-grid { display: flex; align-items: center; justify-content: space-between; }
+.logo { font-size: 1.25rem; font-weight: 700; letter-spacing: 1px }
+.header-actions { display:flex; align-items:center; gap:0.5rem }
+.theme-toggle, .nav-toggle { background: transparent; border:0; color:inherit; font-size:1.25rem; cursor:pointer }
+
+/* Layout */
+.layout { display: grid; grid-template-columns: 260px 1fr; gap: 1.5rem; align-items:start; margin-top: 1.25rem }
+.sidebar { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)); border-radius: 10px; padding: 1rem }
+.sidebar-inner { position: sticky; top: 1rem }
+.profile { display:flex; gap:0.75rem; align-items:center; margin-bottom:1rem }
+.avatar { width:48px; height:48px; border-radius:8px; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700 }
+.muted { color:var(--muted); font-size:0.9rem }
+.side-nav ul { list-style:none; display:flex; flex-direction:column; gap:0.4rem }
+.side-nav a { color:var(--text); text-decoration:none; padding:0.45rem 0.6rem; border-radius:6px; display:block }
+.side-nav a:hover { background: rgba(255,255,255,0.06); color:var(--primary) }
+
+/* Main */
+.main { min-height: 60vh }
+.hero { background: var(--hero-bg); color:#fff; padding:2.5rem; border-radius:10px }
+.hero-inner { max-width:760px }
+.hero .lead { opacity:0.95; margin:0.5rem 0 1rem }
+.btn { display:inline-block; background:var(--btn-bg); color:#fff; padding:0.6rem 1rem; border-radius:8px; text-decoration:none; font-weight:700; box-shadow: 0 8px 28px var(--shadow); transition:transform 0.18s ease }
+.btn:hover { transform: translateY(-3px) }
+
+.features { margin-top:1.25rem }
+.features h3 { color:var(--primary); margin-bottom:0.75rem }
+.features-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:1rem }
+.card { background:var(--card); padding:1rem; border-radius:8px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); font-weight:600 }
+
+.contact { margin-top:1.25rem; padding:1rem; background:var(--card); border-radius:8px }
+
+.site-footer { margin-top:2rem; background:var(--footer-bg); color:#fff; padding:1rem; border-radius:8px }
+
+@media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { order: 2 }
+    .main { order: 1 }
+    .features-grid { grid-template-columns: 1fr }
 }
 
-html,
-body {
-    height: 100%;
-    font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
-    color: var(--text-primary);
-    background: var(--bg-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 1rem
-}
-
-.site-header {
-    background: var(--header-bg);
-    color: #fff;
-    transition: background 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+@media (max-width:700px) {
+    .header-actions { gap:0.25rem }
+    .nav-toggle { display:inline-block }
+    .sidebar { display:none }
+    .sidebar.open { display:block; position: absolute; left: 1rem; top: 72px; width: 86%; z-index: 80 }
+    .layout { gap:0.75rem }
 }
 
 .site-header .container {
