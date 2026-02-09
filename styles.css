@@ -1,3 +1,38 @@
+/* CSS Variables for Theme */
+:root {
+    --bg-primary: #ffffff;
+    --text-primary: #1a1a2e;
+    --header-bg: linear-gradient(90deg, #FF6B35, #FF8C42);
+    --hero-bg: linear-gradient(135deg, #004E89, #1B6CA8);
+    --features-bg: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+    --features-heading: #FF6B35;
+    --contact-bg: linear-gradient(135deg, #E0F7FF, #B3E5FC);
+    --contact-heading: #004E89;
+    --contact-link: #FF6B35;
+    --footer-bg: linear-gradient(90deg, #1a1a2e, #16213e);
+    --footer-text: #f0f0f0;
+    --btn-bg: linear-gradient(90deg, #FF6B35, #F7931E);
+    --btn-shadow: rgba(255, 107, 53, 0.4);
+    --accent-teal: #00B4D8;
+    --accent-purple: #7209B7;
+}
+
+html.dark-mode {
+    --bg-primary: #0f0f1e;
+    --text-primary: #e0e0e0;
+    --header-bg: linear-gradient(90deg, #d84315, #ff6f00);
+    --hero-bg: linear-gradient(135deg, #003d5c, #0a5f7f);
+    --features-bg: linear-gradient(135deg, #2d1b00, #3d2817);
+    --features-heading: #ffab40;
+    --contact-bg: linear-gradient(135deg, #0d3b4d, #1a4d5f);
+    --contact-heading: #4fc3f7;
+    --contact-link: #ffab40;
+    --footer-bg: linear-gradient(90deg, #050505, #0a0a14);
+    --footer-text: #d0d0d0;
+    --btn-bg: linear-gradient(90deg, #ff6f00, #ff9800);
+    --btn-shadow: rgba(255, 111, 0, 0.4);
+}
+
 /* Simple reset */
 * {
     box-sizing: border-box;
@@ -9,7 +44,9 @@ html,
 body {
     height: 100%;
     font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
-    color: #222
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -19,8 +56,10 @@ body {
 }
 
 .site-header {
-    background: linear-gradient(90deg, #0066FF, #0099FF);
-    color: #161515
+    background: var(--header-bg);
+    color: #fff;
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .site-header .container {
@@ -55,51 +94,76 @@ body {
     transform: scale(1.05)
 }
 
-.nav-toggle {
+.nav-toggle,
+.theme-toggle {
     display: none;
     background: transparent;
     border: 0;
     color: inherit;
-    font-size: 1.25rem
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.theme-toggle:hover,
+.nav-toggle:hover {
+    transform: scale(1.15);
 }
 
 .hero {
-    background: linear-gradient(135deg, #667EEA, #764BA2);
+    background: var(--hero-bg);
     padding: 3.5rem 1rem;
     text-align: center;
-    color: #fff
+    color: #fff;
+    transition: background 0.3s ease;
 }
 
 .hero h2 {
     font-size: 1.75rem;
     margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2)
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero p {
-    color: #f0f0f0;
+    color: rgba(255, 255, 255, 0.95);
     margin-bottom: 1rem
 }
 
 .btn {
     display: inline-block;
-    background: linear-gradient(90deg, #F093FB, #F5576C);
+    background: var(--btn-bg);
     color: #fff;
     padding: 0.6rem 1rem;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4)
+    box-shadow: 0 4px 15px var(--btn-shadow);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--btn-shadow);
 }
 
 .features {
     padding: 2rem 1rem;
-    background: linear-gradient(135deg, #FFF5E1, #FFE5CC)
+    background: var(--features-bg);
+    transition: background 0.3s ease;
 }
 
 .features h3 {
-    color: #FF6B6B
+    color: var(--features-heading);
+    transition: color 0.3s ease;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .features ul {
@@ -110,52 +174,85 @@ body {
 
 .features li {
     padding: 1rem;
-    background: #fff;
-    border-left: 4px solid #00D2FC;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08)
+    background: var(--bg-primary);
+    border-left: 5px solid var(--accent-teal);
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.features li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .contact {
-    background: linear-gradient(135deg, #E0F7FF, #F0FFFF)
+    background: var(--contact-bg);
+    transition: background 0.3s ease;
+    padding: 2rem 1rem;
+    border-radius: 8px;
 }
 
 .contact h3 {
-    color: #667EEA
+    color: var(--contact-heading);
+    transition: color 0.3s ease;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
 }
 
 .contact a {
-    color: #FF6B6B;
+    color: var(--contact-link);
     text-decoration: none;
-    font-weight: 600
+    font-weight: 700;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .contact a:hover {
-    text-decoration: underline
+    text-decoration: underline;
+    transform: scale(1.05);
 }
 
 .site-footer {
-    background: linear-gradient(90deg, #1a1a2e, #16213e);
+    background: var(--footer-bg);
     padding: 1rem;
     margin-top: 2rem;
     text-align: center;
-    color: #f0f0f0
+    color: var(--footer-text);
+    transition: background 0.3s ease, color 0.3s ease;
+    font-size: 0.95rem;
 }
 
 @media (max-width:700px) {
     .nav-list {
         display: none;
         flex-direction: column;
-        background: rgba(0, 0, 0, 0.02);
+        background: rgba(255, 255, 255, 0.95);
         position: absolute;
         right: 1rem;
         top: 60px;
         padding: 0.5rem;
-        border-radius: 6px
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    html.dark-mode .nav-list {
+        background: rgba(0, 0, 0, 0.95);
     }
 
     .nav-toggle {
-        display: inline-block
+        display: inline-block;
+        margin-right: 0.5rem;
+    }
+
+    .theme-toggle {
+        margin-right: 0.5rem;
     }
 
     .hero {

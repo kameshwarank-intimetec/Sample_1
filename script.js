@@ -1,5 +1,29 @@
+// Theme toggle functionality
+function initTheme() {
+  var themeToggle = document.getElementById('themeToggle');
+  var savedTheme = localStorage.getItem('theme') || 'light';
+  
+  if(savedTheme === 'dark') {
+    document.documentElement.classList.add('dark-mode');
+    themeToggle.textContent = '☀️';
+  } else {
+    document.documentElement.classList.remove('dark-mode');
+    themeToggle.textContent = '🌙';
+  }
+  
+  if(themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      document.documentElement.classList.toggle('dark-mode');
+      var isDarkMode = document.documentElement.classList.contains('dark-mode');
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+      themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+    });
+  }
+}
+
 // Simple nav toggle and smooth scroll
 document.addEventListener('DOMContentLoaded',function(){
+  initTheme();
   var navToggle = document.getElementById('navToggle');
   var navList = document.querySelector('.nav-list');
 
